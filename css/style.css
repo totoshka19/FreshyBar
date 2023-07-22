@@ -213,15 +213,16 @@ fieldset {
 
 .cocktail__text {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
+    gap: 2px 5px;
 }
 
 .cocktail__title {
-    font-size: 18px;
+    font-size: inherit;
     font-weight: 400;
-    margin-right: 5px;
 }
 
 .cocktail__price {
@@ -229,10 +230,11 @@ fieldset {
 }
 
 .cocktail__size {
+    flex: 0 0 100%;
     color: #C1C1C1;
-    align-self: flex-end;
     font-size: 12px;
     font-weight: 600;
+    text-align: end;
     margin-bottom: 10px;
 }
 
@@ -268,6 +270,7 @@ fieldset {
 .footer__developer {
     grid-area: developer;
     justify-self: end;
+    min-width: 230px;
 }
 
 .footer__developer-item {
