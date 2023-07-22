@@ -93,6 +93,10 @@ fieldset {
     box-shadow: 0 4px 20px 0 #FA5A5A;
 }
 
+.text-red {
+    color: #F44;
+}
+
 /*---------- Header start ----------*/
 .header {
     padding: 32px 0;
@@ -110,18 +114,67 @@ fieldset {
     gap: 32px;
 }
 
-.header__btn-order {
+/*.header__btn-order {*/
 
-}
+/*}*/
 
 .header__btn {
     display: block;
-
 }
 /*---------- Header end ----------*/
 
 /*---------- Hero start ----------*/
+.hero {
+    padding: 30px 0 85px;
+}
 
+.hero__title {
+    font-size: 84px;
+    font-weight: 900;
+    max-width: 880px;
+}
 
+.hero__cups {
+    display: flex;
+    gap: 20px;
+    padding-top: 270px;
+}
+
+.hero__cup {
+    position: relative;
+    width: 380px;
+    height: 382px;
+    border-radius: 24px;
+}
+
+.hero__cup_pink {
+    background-color: #FF196C;
+}
+
+.hero__cup_orange {
+    background-color: #FFB72A;
+    margin-top: -70px;
+}
+
+.hero__cup_green {
+    background-color: #34B905;
+}
+
+.hero__img {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /*---------- Hero end ----------*/
+
+/*---------- Goods start ----------*/
+
+/*---------- Goods end ----------*/
+
+/*---------- Footer start ----------*/
+
+/*---------- Footer end ----------*/
+
+
 
