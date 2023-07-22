@@ -24,7 +24,6 @@
 }
 
 /*---------- Базовые стили ----------*/
-
 html {
     box-sizing: border-box;
 }
@@ -77,7 +76,6 @@ fieldset {
 }
 
 /*---------- Основные стили ----------*/
-
 .container {
     --width: 1180px;
     --padding: 30px;
@@ -94,3 +92,36 @@ fieldset {
     background-color: #F44;
     box-shadow: 0 4px 20px 0 #FA5A5A;
 }
+
+/*---------- Header start ----------*/
+.header {
+    padding: 32px 0;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__btns {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.header__btn-order {
+
+}
+
+.header__btn {
+    display: block;
+
+}
+/*---------- Header end ----------*/
+
+/*---------- Hero start ----------*/
+
+
+/*---------- Hero end ----------*/
+
