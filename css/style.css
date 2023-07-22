@@ -212,21 +212,21 @@ fieldset {
 }
 
 .cocktail__text {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     margin-bottom: 10px;
     gap: 2px 5px;
 }
 
 .cocktail__title {
+    grid-row: 1/3;
     font-size: inherit;
     font-weight: 400;
 }
 
 .cocktail__price {
     font-weight: 600;
+    text-align: end;
 }
 
 .cocktail__size {
