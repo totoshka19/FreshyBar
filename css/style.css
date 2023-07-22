@@ -23,6 +23,55 @@
     src: url('../fonts/mulish-v12-cyrillic_latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/*---------- Базовые стили ----------*/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
+    min-width: 320px;
+    min-height: 100vh;
     font-family: Mulish, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.1;
+    background-color: #F8E8E2;
+    background-image: url("../img/bg.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    color: #000;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+p,
+fieldset {
+    margin: 0;
 }
