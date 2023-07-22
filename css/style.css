@@ -114,10 +114,6 @@ fieldset {
     gap: 32px;
 }
 
-/*.header__btn-order {*/
-
-/*}*/
-
 .header__btn {
     display: block;
 }
@@ -169,7 +165,61 @@ fieldset {
 /*---------- Hero end ----------*/
 
 /*---------- Goods start ----------*/
+.goods {
+    padding: 60px 0 50px;
+}
 
+.goods__title {
+    font-size: 44px;
+    font-weight: 900;
+}
+
+.goods__list {
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: stretch;
+    align-self: stretch;
+    gap: 20px;
+}
+
+.goods__item {
+    border-radius: 32px;
+    background: #FFF;
+    justify-self: stretch;
+}
+
+.goods__card {
+    padding: 12px 12px 24px 12px;
+}
+
+.cocktail__text {
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cocktail__title {
+    font-weight: 400;
+}
+
+.cocktail__price {
+    font-weight: 600;
+}
+
+.cocktail__size {
+    padding: 2px 0 10px;
+    color: #C1C1C1;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.cocktail__btn {
+    width: 100%;
+}
 /*---------- Goods end ----------*/
 
 /*---------- Footer start ----------*/
