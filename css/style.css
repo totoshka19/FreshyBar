@@ -75,3 +75,22 @@ p,
 fieldset {
     margin: 0;
 }
+
+/*---------- Основные стили ----------*/
+
+.container {
+    --width: 1180px;
+    --padding: 30px;
+
+    max-width: calc(var(--width) + (var(--padding) * 2));
+    padding: 0 var(--padding);
+    margin: 0 auto;
+}
+
+.btn {
+    color: #FFF;
+    padding: 12px 28px;
+    border-radius: 40px;
+    background-color: #F44;
+    box-shadow: 0 4px 20px 0 #FA5A5A;
+}
