@@ -32,6 +32,29 @@ const createCard = (item) => {
     return cocktail;
 }
 
+// Запрет скрола при открытом модальном окне
+const scrollService = {
+    scrollPosition: 0,
+    disabledScroll: function() {
+        this.scrollPosition = window.scrollY;
+        document.documentElement.style.scrollBehavior = "auto";
+        document.body.style.cssText = `
+        overflow: hidden;
+        position: fixed;
+        top: -${this.scrollPosition}px;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        padding-right: ${window.innerWidth - document.body.offsetWidth}px;
+        `;
+    },
+    enabledScroll: function() {
+        document.body.style.cssText = "";
+        window.scroll({ top: this.scrollPosition });
+        document.documentElement.style.scrollBehavior = "";
+    },
+};
+
 // Скрипт для открытия/закрытия модальных окон
 const modalController = ({ modal, btnOpen, time = 300 }) => {
     const buttonElem = document.querySelector(btnOpen);
@@ -53,6 +76,7 @@ const modalController = ({ modal, btnOpen, time = 300 }) => {
 
             setTimeout(() => {
                 modalElem.style.visibility = "hidden";
+                scrollService.enabledScroll();
             }, time);
 
             window.removeEventListener("keydown", closeModal);
@@ -63,6 +87,7 @@ const modalController = ({ modal, btnOpen, time = 300 }) => {
         modalElem.style.visibility = "visible";
         modalElem.style.opacity = "1";
         window.addEventListener("keydown", closeModal);
+        scrollService.disabledScroll();
     };
 
     buttonElem.addEventListener("click", openModal);
