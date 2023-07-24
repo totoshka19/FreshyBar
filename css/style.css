@@ -281,5 +281,101 @@ fieldset {
 }
 /*---------- Footer end ----------*/
 
+/*---------- Modal start ----------*/
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,.5);
+    cursor: pointer;
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+}
+
+.modal__main {
+    margin: auto;
+    cursor: default;
+    width: 100%;
+    max-width: 780px;
+}
+
+.order {
+    border-radius: 24px;
+    background-color: #F8E8E2;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    padding: 40px 60px;
+}
+
+.order__title {
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.order__list {
+
+}
+
+.order__item {
+
+}
+
+.order__img {
+
+}
+
+.order__info {
+
+}
+
+.order__name {
+
+}
+
+.order__topping-list {
+
+}
+
+.order__topping-item {
+
+}
+
+.order__item-delete {
+
+}
+
+.order__item-price {
+
+}
+
+.order__price {
+
+}
+
+.order__price-title {
+
+}
+
+.order__total-price {
+
+}
+
+.order__form {
+
+}
+
+.order__label {
+
+}
+
+.order__input {
+
+}
+
+.order__submit {
+
+}
+/*---------- Modal end ----------*/
+
 
 

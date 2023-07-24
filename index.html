@@ -76,7 +76,7 @@
 										<p class="cocktail__price text-red">260 &#x20bd;</p>
 										<p class="cocktail__size">300мл</p>
 									</div>
-									<button class="btn cocktail__btn cocktail__btn_make">Добавить</button>
+									<button class="btn cocktail__btn cocktail__btnmake">Добавить</button>
 								</div>
 							</article>
 						</li>
@@ -112,7 +112,8 @@
 	<div class="modal modal__order">
 		<div class="modal__main">
 			<div class="order">
-				<h2 class="order__title">Корзина<sup>(2)</sup></h2>
+				<h2 class="order__title">Корзина<sup class="text-red order__count">(2)</sup>
+				</h2>
 				<ul class="order__list">
 					
 					<li class="order__item">
@@ -155,10 +156,10 @@
 				</div>
 				
 				<form class="order__form">
-					<label for="" class="order__label">
+					<label class="order__label">
 						<input type="text" class="order__input">
 					</label>
-					<label for="" class="order__label">
+					<label class="order__label">
 						<input type="text" class="order__input">
 					</label>
 					<button class="order__submit">Заказать</button>

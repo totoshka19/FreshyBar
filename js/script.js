@@ -32,8 +32,48 @@ const createCard = (item) => {
     return cocktail;
 }
 
+// Скрипт для открытия/закрытия модальных окон
+const modalController = ({ modal, btnOpen, time = 300 }) => {
+    const buttonElem = document.querySelector(btnOpen);
+    const modalElem = document.querySelector(modal);
+
+    modalElem.style.cssText = `
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity ${time}ms ease-in-out;
+    `;
+
+    const openModal = () => {
+        modalElem.style.visibility = "visible";
+        modalElem.style.opacity = "1";
+    };
+
+    const closeModal = (event) => {
+        const target = event.target;
+
+        if (target === modalElem) {
+            modalElem.style.opacity = "0";
+
+            setTimeout(() => {
+                modalElem.style.visibility = "hidden";
+            }, time);
+        }
+    };
+
+    buttonElem.addEventListener("click", openModal);
+    modalElem.addEventListener("click", closeModal);
+
+    return { openModal, closeModal };
+}
+
 // Получение html элемента goods__list
 const init = async () => {
+    modalController({
+        modal: ".modal__order",
+        btnOpen: ".header__btn-order",
+    });
+
     const goodsListElem = document.querySelector(".goods__list");
     const data = await getData();
 
