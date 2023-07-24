@@ -297,7 +297,14 @@ fieldset {
     margin: auto;
     cursor: default;
     width: 100%;
+}
+
+.modal__main_order {
     max-width: 780px;
+}
+
+.modal__main_make {
+    max-width: 640px;
 }
 
 .order {

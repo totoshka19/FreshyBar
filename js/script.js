@@ -100,7 +100,12 @@ const modalController = ({ modal, btnOpen, time = 300 }) => {
 const init = async () => {
     modalController({
         modal: ".modal__order",
-        btnOpen: ".header__btn-order",
+        btnOpen: ".header__btn-order"
+    });
+
+    modalController({
+        modal: ".modal__make",
+        btnOpen: ".cocktail__btn_make"
     });
 
     const goodsListElem = document.querySelector(".goods__list");
