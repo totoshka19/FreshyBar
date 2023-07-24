@@ -44,21 +44,25 @@ const modalController = ({ modal, btnOpen, time = 300 }) => {
     transition: opacity ${time}ms ease-in-out;
     `;
 
-    const openModal = () => {
-        modalElem.style.visibility = "visible";
-        modalElem.style.opacity = "1";
-    };
-
     const closeModal = (event) => {
         const target = event.target;
+        const code = event.code;
 
-        if (target === modalElem) {
+        if (target === modalElem || code === "Escape") {
             modalElem.style.opacity = "0";
 
             setTimeout(() => {
                 modalElem.style.visibility = "hidden";
             }, time);
+
+            window.removeEventListener("keydown", closeModal);
         }
+    };
+
+    const openModal = () => {
+        modalElem.style.visibility = "visible";
+        modalElem.style.opacity = "1";
+        window.addEventListener("keydown", closeModal);
     };
 
     buttonElem.addEventListener("click", openModal);
