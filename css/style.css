@@ -299,12 +299,9 @@ fieldset {
     width: 100%;
 }
 
+/*Корзина*/
 .modal__main_order {
     max-width: 780px;
-}
-
-.modal__main_make {
-    max-width: 640px;
 }
 
 .order {
@@ -322,7 +319,6 @@ fieldset {
 
 .order__list {
     margin-bottom: 40px;
-
 }
 
 .order__item {
@@ -354,10 +350,6 @@ fieldset {
     font-size: inherit;
     font-weight: 400;
     margin-bottom: 8px;
-}
-
-.order__topping-list {
-
 }
 
 .order__topping-item {
@@ -421,6 +413,105 @@ fieldset {
 .order__submit {
     justify-self: end;
     grid-column: 2/3;
+}
+
+/*Собери свой смузи*/
+.modal__main_make {
+    max-width: 640px;
+}
+
+.make {
+    border-radius: 24px;
+    background-color: #F8E8E2;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    padding: 60px 40px;
+}
+
+.make__title {
+    font-size: 44px;
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+
+.make__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.make__fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.make__fieldset-ingredients {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 55px;
+    margin-bottom: 32px;
+}
+
+.make__wrap-add {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 55px;
+}
+
+.make__fieldset-topping {
+    width: 150px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.make__fieldset-cup {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.make__legend {
+    color: #D5B4A8;
+    margin-bottom: 24px;
+}
+.make__upsale {
+    color: #D5B4A8;
+    font-size: 12px;
+}
+
+.make__footer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.make__add-btn {
+    min-width: 232px;
+}
+
+.make__total-price {
+    font-weight: 600;
+}
+
+.make__total-size {
+    color: #D5B4A8;
+    text-align: right;
+    font-size: 12px;
+}
+
+.checkbox {
+
+}
+
+.checkbox__input {
+
+}
+
+.radio {
+
+}
+
+.radio__input {
+
 }
 /*---------- Modal end ----------*/
 
