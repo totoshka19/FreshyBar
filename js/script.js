@@ -25,7 +25,7 @@ const createCard = (item) => {
         <p class="cocktail__price text-red">${item.price} &#x20bd;</p>
         <p class="cocktail__size">${item.size}</p>
       </div>
-      <button class="btn cocktail__btn" data-id="${item.id}">Добавить</button>
+      <button class="btn cocktail__btn cocktail__btn_add" data-id="${item.id}">Добавить</button>
     </div>
     `;
 
@@ -57,7 +57,7 @@ const scrollService = {
 
 // Скрипт для открытия/закрытия модальных окон
 const modalController = ({ modal, btnOpen, time = 300 }) => {
-    const buttonElem = document.querySelector(btnOpen);
+    const buttonElems = document.querySelectorAll(btnOpen);
     const modalElem = document.querySelector(modal);
 
     modalElem.style.cssText = `
@@ -90,7 +90,10 @@ const modalController = ({ modal, btnOpen, time = 300 }) => {
         scrollService.disabledScroll();
     };
 
-    buttonElem.addEventListener("click", openModal);
+    buttonElems.forEach(buttonElem => {
+        buttonElem.addEventListener("click", openModal);
+    });
+
     modalElem.addEventListener("click", closeModal);
 
     return { openModal, closeModal };
@@ -101,11 +104,6 @@ const init = async () => {
     modalController({
         modal: ".modal__order",
         btnOpen: ".header__btn-order"
-    });
-
-    modalController({
-        modal: ".modal__make",
-        btnOpen: ".cocktail__btn_make"
     });
 
     const goodsListElem = document.querySelector(".goods__list");
@@ -120,6 +118,16 @@ const init = async () => {
     });
 
     goodsListElem.append(...cardsCocktail);
+
+    modalController({
+        modal: ".modal__make-your-own",
+        btnOpen: ".cocktail__btn_make"
+    });
+
+    modalController( {
+        modal: ".modal__add",
+        btnOpen: ".cocktail__btn_add"
+    });
 };
 
 init();
