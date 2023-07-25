@@ -94,6 +94,11 @@ fieldset {
     box-shadow: 0 4px 20px 0 #FA5A5A;
 }
 
+.btn:disabled {
+    background-color: #C1C1C1;
+    box-shadow: none;
+}
+
 .text-red {
     color: #F44;
 }

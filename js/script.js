@@ -13,6 +13,30 @@ const price = {
     "Пластиковый": 0,
 };
 
+// Добавление товаров в корзину
+const cartDataControl = {
+    get() {
+        return JSON.parse(localStorage.getItem("freshyBarCart") || "[]");
+    },
+    add(item) {
+        const cartData = this.get();
+        item.idls = Math.random().toString(36).substring(2, 8);
+        cartData.push(item);
+        localStorage.setItem("freshyBarCart", JSON.stringify(cartData));
+    },
+    remove(idls) {
+        const cartData = this.get();
+        const index = cartData.findIndex((item) => item.idls === idls);
+        if (index !== -1) {
+            cartData.splice(index, 1);
+        }
+        localStorage.setItem("freshyBarCart", JSON.stringify(cartData));
+    },
+    clear() {
+        localStorage.removeItem("freshyBarCart");
+    }
+}
+
 // Получение данных с сервера
 const getData = async () => {
     const response = await fetch(API_URL + "api/goods");
@@ -84,7 +108,7 @@ const modalController = ({ modal, btnOpen, time = 300, open, close }) => {
         const target = event.target;
         const code = event.code;
 
-        if (target === modalElem || code === "Escape") {
+        if (event === "close" || target === modalElem || code === "Escape") {
             modalElem.style.opacity = "0";
 
             setTimeout(() => {
@@ -115,6 +139,8 @@ const modalController = ({ modal, btnOpen, time = 300, open, close }) => {
 
     modalElem.addEventListener("click", closeModal);
 
+    modalElem.closeModal = closeModal;
+    modalElem.openModal = openModal;
     return { openModal, closeModal };
 }
 
@@ -163,19 +189,60 @@ const calculateTotalPrice = (form, startPrice) => {
     return totalPrice;
 }
 
+const formControl = (form, cb) => {
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const data = getFormData(form);
+        cartDataControl.add(data);
+
+        if (cb) {
+            cb();
+        }
+    });
+}
+
 const calculateMakeYourOwn = () => {
-    const formMakeOwn = document.querySelector(".make__form-make-your-own");
-    const makeInputPrice = formMakeOwn.querySelector(".make__input-price");
-    const makeTotalPrice = formMakeOwn.querySelector(".make__total-price");
+    const modalMakeOwn = document.querySelector(".modal__make-your-own");
+    const formMakeOwn = modalMakeOwn.querySelector(".make__form-make-your-own");
+    const makeInputTitle =  modalMakeOwn.querySelector(".make__input-title");
+    const makeInputPrice = modalMakeOwn.querySelector(".make__input-price");
+    const makeTotalPrice = modalMakeOwn.querySelector(".make__total-price");
+    const makeAddBtn =  modalMakeOwn.querySelector(".make__add-btn");
 
     const handlerChange = () => {
         const totalPrice = calculateTotalPrice(formMakeOwn, 150);
+
+        const data = getFormData(formMakeOwn);
+
+        if (data.ingredients) {
+            const ingredients = Array.isArray(data.ingredients)
+            ? data.ingredients.join(", ")
+            : data.ingredients;
+
+            makeInputTitle.value = `Конструктор: ${ingredients}`;
+            makeAddBtn.disabled = false;
+        } else {
+            makeAddBtn.disabled = true;
+        }
+
         makeInputPrice.value = totalPrice;
         makeTotalPrice.textContent = `${totalPrice} ₽`;
     }
 
     formMakeOwn.addEventListener("change", handlerChange);
+    formControl(formMakeOwn, () => {
+        modalMakeOwn.closeModal("close");
+    });
     handlerChange();
+
+    const resetForm = () => {
+        makeTotalPrice.textContent = "";
+        makeAddBtn.disabled = true;
+        formAdd.reset();
+    }
+
+    return { resetForm };
 }
 
 const calculateAdd = () => {
@@ -197,6 +264,9 @@ const calculateAdd = () => {
     }
 
     formAdd.addEventListener("change", handlerChange);
+    formControl(formAdd, () => {
+        modalAdd.closest("close");
+    });
 
     const fillInForm = (data) => {
         makeTitle.textContent = data.title;
@@ -226,11 +296,12 @@ const init = async () => {
         btnOpen: ".header__btn-order"
     });
 
-    calculateMakeYourOwn();
+    const { resetForm: resetFormMakeYourOwn } = calculateMakeYourOwn();
 
     modalController({
         modal: ".modal__make-your-own",
-        btnOpen: ".cocktail__btn_make"
+        btnOpen: ".cocktail__btn_make",
+        close: resetFormMakeYourOwn,
     });
 
     const goodsListElem = document.querySelector(".goods__list");
@@ -246,7 +317,7 @@ const init = async () => {
 
     goodsListElem.append(...cardsCocktail);
 
-    const {fillInForm, resetForm} = calculateAdd();
+    const { fillInForm: fillInFormAdd, resetForm: resetFormAdd } = calculateAdd();
 
     modalController( {
         modal: ".modal__add",
@@ -254,9 +325,9 @@ const init = async () => {
         open({btn}) {
             const id = btn.dataset.id;
             const item = data.find( item => item.id.toString() === id );
-            fillInForm(item);
+            fillInFormAdd(item);
         },
-        close: resetForm,
+        close: resetFormAdd,
     });
 };
 
