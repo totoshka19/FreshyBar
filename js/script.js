@@ -1,5 +1,18 @@
 const API_URL = "https://sunny-hazel-zebu.glitch.me/";
 
+const price = {
+    "Клубника": 60,
+    "Киви": 50,
+    "Банан": 70,
+    "Маракуйя": 55,
+    "Манго": 90,
+    "Яблоко": 45,
+    "Мята": 50,
+    "Лед": 10,
+    "Биоразлагаемый": 20,
+    "Пластиковый": 0,
+};
+
 // Получение данных с сервера
 const getData = async () => {
     const response = await fetch(API_URL + "api/goods");
@@ -99,11 +112,78 @@ const modalController = ({ modal, btnOpen, time = 300 }) => {
     return { openModal, closeModal };
 }
 
+// Расчет общей стоимости в модальном окне при собирании своего напитка
+const getFormData = (form) => {
+    const formData = new FormData(form);
+    const data = {};
+
+    for (const [name, value] of formData.entries()) {
+        if (data[name]) {
+            if (!Array.isArray(data[name])) {
+                data[name] = [data[name]];
+            }
+            data[name].push(value);
+        } else {
+            data[name] = value;
+        }
+    }
+
+    return data;
+}
+
+const calculateTotalPrice = (form, startPrice) => {
+    let totalPrice = startPrice;
+
+    const data = getFormData(form);
+
+    if (Array.isArray(data.ingredients)) {
+        data.ingredients.forEach(item => {
+            totalPrice += price[item]  || 0;
+        });
+    } else {
+        totalPrice += price[data.ingredients] || 0;
+    }
+
+    if (Array.isArray(data.topping)) {
+        data.topping.forEach(item => {
+            totalPrice += price[item]  || 0;
+        });
+    } else {
+        totalPrice += price[data.topping] || 0;
+    }
+
+    totalPrice += price[data.cup] || 0;
+
+    return totalPrice;
+}
+
+const calculateMakeYourOwn = () => {
+    const formMakeOwn = document.querySelector(".make__form-make-your-own");
+    const makeInputPrice = formMakeOwn.querySelector(".make__input-price");
+    const makeTotalPrice = formMakeOwn.querySelector(".make__total-price");
+
+    const handlerChange = () => {
+        const totalPrice = calculateTotalPrice(formMakeOwn, 150);
+        makeInputPrice.value = totalPrice;
+        makeTotalPrice.textContent = `${totalPrice} ₽`;
+    }
+
+    formMakeOwn.addEventListener("change", handlerChange);
+    handlerChange();
+}
+
 // Получение html элемента goods__list
 const init = async () => {
     modalController({
         modal: ".modal__order",
         btnOpen: ".header__btn-order"
+    });
+
+    calculateMakeYourOwn();
+
+    modalController({
+        modal: ".modal__make-your-own",
+        btnOpen: ".cocktail__btn_make"
     });
 
     const goodsListElem = document.querySelector(".goods__list");
@@ -118,11 +198,6 @@ const init = async () => {
     });
 
     goodsListElem.append(...cardsCocktail);
-
-    modalController({
-        modal: ".modal__make-your-own",
-        btnOpen: ".cocktail__btn_make"
-    });
 
     modalController( {
         modal: ".modal__add",
