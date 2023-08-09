@@ -401,6 +401,7 @@ fieldset {
 .decor {
     position: absolute;
     inset: 0;
+    pointer-events: none;
 }
 
 .decor__img {
@@ -526,7 +527,7 @@ fieldset {
 
 .cocktail__price {
     font-weight: 600;
-    text-align: end;
+    text-align: right;
 }
 
 .cocktail__size {
@@ -534,7 +535,7 @@ fieldset {
     color: #C1C1C1;
     font-size: 12px;
     font-weight: 600;
-    text-align: end;
+    text-align: right;
 }
 
 .cocktail__btn {
@@ -709,6 +710,18 @@ fieldset {
     border: none;
 }
 
+.order__input:hover {
+    background-color: #F6F6F6;
+}
+
+.order__input:focus {
+    border: 1px solid #D5B4A8;
+}
+
+.order__input:focus-visible {
+    outline: none;
+}
+
 .order__submit {
     justify-self: end;
     grid-column: 2/3;
@@ -814,7 +827,6 @@ fieldset {
     height: 24px;
     margin-left: -32px;
     cursor: pointer;
-
 }
 
 .checkbox__input:before {
@@ -858,11 +870,64 @@ fieldset {
 }
 
 .radio {
-
+    position: relative;
+    display: block;
+    padding-left: 32px;
+    line-height: 24px;
+    cursor: pointer;
 }
 
 .radio__input {
+    position: absolute;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    margin-left: -32px;
+    cursor: pointer;
 
+}
+
+.radio__input:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    border-radius: 50%;
+    background-color: #FFF;
+}
+
+.radio__input:after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.radio__input:checked:after {
+    opacity: 1;
+}
+
+.radio__input:hover:before {
+    background-color: #F6F6F6;
+}
+
+.radio__input:focus:before {
+    border: 1px solid #D5B4A8;
+}
+
+.radio__input:focus-visible {
+    outline: none;
 }
 /*---------- Modal end ----------*/
 

@@ -167,11 +167,15 @@
         row-gap: 8px;
     }
     .cocktail__title {
-        flex: 0 0 100%;
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+    .cocktail__price {
+        text-align: left;
     }
     .cocktail__size {
-        flex: auto;
         font-size: 10px;
+        align-self: flex-end;
     }
     .footer {
         padding-bottom: 24px;
