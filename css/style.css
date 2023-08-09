@@ -27,6 +27,8 @@
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    position: relative;
+    overflow-x: hidden;
 }
 
 *,
@@ -48,6 +50,8 @@ body {
     background-position: top;
     background-size: contain;
     color: #000;
+    position: relative;
+    overflow-x: hidden;
 }
 
 button {
@@ -103,6 +107,218 @@ fieldset {
     color: #F44;
 }
 
+/*---------- Анимация desktop----------*/
+@keyframes flying01 {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+    100% {
+        top: 19%;
+        left: -6%;
+    }
+}
+
+@keyframes flying02 {
+    0% {
+        top: -100%;
+        right: -100%;
+    }
+    100% {
+        top: 11%;
+        right: 6%;
+    }
+}
+
+@keyframes flying03 {
+    0% {
+        bottom: -100%;
+        left: -100%;
+    }
+    100% {
+        bottom: 46%;
+        left: 36%;
+    }
+}
+
+@keyframes flying04 {
+    0% {
+        top: 34%;
+        right: -100%;
+    }
+    100% {
+        top: 34%;
+        right: 0;
+    }
+}
+
+@keyframes flying05 {
+    0% {
+        bottom: -100%;
+        left: 27%;
+    }
+    100% {
+        bottom: -4%;
+        left: 27%;
+    }
+}
+
+@keyframes flying06 {
+    0% {
+        bottom: -100%;
+        right: -5%;
+    }
+    100% {
+        bottom: -10%;
+        right: -5%;
+    }
+}
+
+/*---------- Анимация laptop----------*/
+@keyframes flyingLaptop01 {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+    100% {
+        top: 25%;
+        left: 1%;
+    }
+}
+
+@keyframes flyingLaptop03 {
+    0% {
+        bottom: -100%;
+        left: -100%;
+    }
+    100% {
+        bottom: 44%;
+        left: 37%;
+    }
+}
+
+@keyframes flyingLaptop04 {
+    0% {
+        top: 34%;
+        right: -100%;
+    }
+    100% {
+        top: 35%;
+        right: 1%;
+    }
+}
+
+@keyframes flyingLaptop05 {
+    0% {
+        bottom: -100%;
+        left: 27%;
+    }
+    100% {
+        bottom: -2%;
+        left: 29%;
+    }
+}
+
+@keyframes flyingLaptop06 {
+    0% {
+        bottom: -100%;
+        right: -5%;
+    }
+    100% {
+        bottom: -5%;
+        right: -3%;
+    }
+}
+
+/*---------- Анимация tablet----------*/
+@keyframes flyingTablet01 {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+    100% {
+        top: 21%;
+        left: -2%;
+    }
+}
+
+@keyframes flyingTablet03 {
+    0% {
+        bottom: -200%;
+        left: -100%;
+    }
+    100% {
+        bottom: 49%;
+        left: 36%;
+    }
+}
+
+@keyframes flyingTablet04 {
+    0% {
+        top: 34%;
+        right: -100%;
+    }
+    100% {
+        top: 31%;
+        right: -1%;
+    }
+}
+
+@keyframes flyingTablet05 {
+    0% {
+        bottom: -100%;
+        left: 27%;
+    }
+    100% {
+        left: 28%;
+    }
+}
+
+@keyframes flyingTablet06 {
+    0% {
+        bottom: -100%;
+        right: -5%;
+    }
+    100% {
+        bottom: -11%;
+        right: -5%;
+    }
+}
+
+/*---------- Анимация mobile----------*/
+@keyframes flyingMobile01 {
+    0% {
+        top: -100%;
+        right: -100%;
+    }
+    100% {
+        top: 98%;
+        left: 3%;
+    }
+}
+
+@keyframes flyingMobile02 {
+    0% {
+        top: 78%;
+        right: 100%;
+    }
+    100% {
+        top: 78%;
+        right: 0;
+    }
+}
+
+@keyframes flyingMobile03 {
+    0% {
+        bottom: -300%;
+        right: -5%;
+    }
+    100% {
+        bottom: -30%;
+        left: 56%;
+    }
+}
+
 /*---------- Header start ----------*/
 .header {
     padding: 36px 0;
@@ -133,6 +349,10 @@ fieldset {
 /*---------- Hero start ----------*/
 .hero {
     padding: 30px 0 85px;
+}
+
+.hero__container {
+    position: relative;
 }
 
 .hero__title {
@@ -175,6 +395,80 @@ fieldset {
     bottom: 13%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/*---------- Декор с ягодками ----------*/
+.decor {
+    position: absolute;
+    inset: 0;
+}
+
+.decor__img {
+    position: absolute;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.decor__img_01 {
+    width: 223px;
+    height: 214px;
+    background-image: url(../img/decor01.png);
+    filter: drop-shadow(0px 10px 30px rgba(164, 7, 2, 0.50));
+    top: 19%;
+    left: -6%;
+    animation: flying01 2s ease-in-out;
+}
+
+.decor__img_02 {
+    width: 180px;
+    height: 147px;
+    background-image: url(../img/decor02.png);
+    filter: drop-shadow(0px 4px 20px rgba(17, 7, 108, 0.50));
+    top: 11%;
+    right: 6%;
+    animation: flying02 2s ease-in-out;
+}
+
+.decor__img_03 {
+    width: 46px;
+    height: 41px;
+    background-image: url(../img/decor03.png);
+    filter: drop-shadow(0px 4px 20px rgba(223, 97, 15, 0.40));
+    bottom: 46%;
+    left: 36%;
+    animation: flying03 2s ease-in-out;
+}
+
+.decor__img_04 {
+    width: 46px;
+    height: 41px;
+    background-image: url(../img/decor03.png);
+    filter: drop-shadow(0px 4px 20px rgba(223, 97, 15, 0.40));
+    top: 34%;
+    right: 0;
+    animation: flying04 2s ease-in-out;
+}
+
+.decor__img_05 {
+    width: 109px;
+    height: 114px;
+    background-image: url(../img/decor04.png);
+    filter: drop-shadow(0px 4px 20px rgba(1, 30, 82, 0.50));
+    bottom: -4%;
+    left: 27%;
+    animation: flying05 2s ease-in-out;
+}
+
+.decor__img_06 {
+    width: 223px;
+    height: 214px;
+    background-image: url(../img/decor01.png);
+    transform: scaleX(-1);
+    filter: drop-shadow(0px 10px 30px rgba(164, 7, 2, 0.50));
+    bottom: -10%;
+    right: -5%;
+    animation: flying06 2s ease-in-out;
 }
 /*---------- Hero end ----------*/
 

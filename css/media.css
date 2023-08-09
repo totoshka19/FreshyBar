@@ -18,6 +18,45 @@
     .hero__cup_orange {
         margin-top: -50px;
     }
+    .decor__img_01 {
+        width: 131px;
+        height: 125px;
+        top: 25%;
+        left: 1%;
+        animation: flyingLaptop01 2s ease-in-out;
+    }
+    .decor__img_02 {
+        width: 122px;
+        height: 99px;
+    }
+    .decor__img_03 {
+        width: 34px;
+        height: 30px;
+        bottom: 44%;
+        left: 37%;
+        animation: flyingLaptop03 2s ease-in-out;
+    }
+    .decor__img_04 {
+        width: 34px;
+        height: 30px;
+        top: 35%;
+        right: 1%;
+        animation: flyingLaptop04 2s ease-in-out;
+    }
+    .decor__img_05 {
+        width: 61px;
+        height: 64px;
+        bottom: -2%;
+        left: 29%;
+        animation: flyingLaptop05 2s ease-in-out;
+    }
+    .decor__img_06 {
+        width: 129px;
+        height: 124px;
+        bottom: -5%;
+        right: -3%;
+        animation: flyingLaptop06 2s ease-in-out;
+    }
     .goods__list {
         grid-template-columns: repeat(3, 280px);
     }
@@ -56,8 +95,50 @@
     .hero__cup {
         border-radius: 12px;
     }
+    .hero__cup_orange {
+        margin-top: -34px;
+    }
     .hero__img {
-        bottom: 10px;
+        bottom: 20px;
+        width: 60%;
+    }
+    .decor__img_01 {
+        width: 76px;
+        height: 73px;
+        top: 21%;
+        left: -2%;
+        animation: flyingTablet01 2s ease-in-out;
+    }
+    .decor__img_02 {
+        width: 72px;
+        height: 58px;
+    }
+    .decor__img_03 {
+        width: 25px;
+        height: 23px;
+        bottom: 49%;
+        left: 36%;
+        animation: flyingTablet03 2s ease-in-out;
+    }
+    .decor__img_04 {
+        width: 22px;
+        height: 19px;
+        top: 31%;
+        right: -1%;
+        animation: flyingTablet04 2s ease-in-out;
+    }
+    .decor__img_05 {
+        width: 41px;
+        height: 44px;
+        left: 28%;
+        animation: flyingTablet05 2s ease-in-out;
+    }
+    .decor__img_06 {
+        width: 96px;
+        height: 93px;
+        bottom: -11%;
+        right: -5%;
+        animation: flyingTablet06 2s ease-in-out;
     }
     .goods {
         padding: 40px 0 50px;
@@ -125,6 +206,32 @@
     }
     .hero__cups {
         display: none;
+    }
+    .decor__img_01 {
+        top: 98%;
+        left: 3%;
+        animation: flyingMobile01 2s ease-in-out;
+    }
+    .decor__img_02 {
+        width: 62px;
+        height: 50px;
+        top: 78%;
+        right: 0;
+        animation: flyingMobile02 2s ease-in-out;
+    }
+    .decor__img_03 {
+        bottom: -30%;
+        left: 56%;
+        animation: flyingMobile03 2s ease-in-out;
+    }
+    .decor__img_04 {
+        display: none;
+    }
+    .decor__img_05 {
+        display: none;
+    }
+    .decor__img_06 {
+       display: none;
     }
     .goods {
         padding: 40px 0 30px;
