@@ -96,6 +96,24 @@ fieldset {
     border-radius: 40px;
     background-color: #F44;
     box-shadow: 0 4px 20px 0 #FA5A5A;
+    transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.btn:hover:not(:disabled) {
+    background-color: #FF6767;
+}
+
+.btn:active:not(:disabled) {
+    border-color: #D5B4A8;
+    background-color: #F44;
+    box-shadow: 0 4px 20px 0 #FA5A5A;
+}
+
+.btn:focus:not(:disabled) {
+    background-color: #52E36A;
+    box-shadow: 0 4px 20px 0 #52E36A;
 }
 
 .btn:disabled {
