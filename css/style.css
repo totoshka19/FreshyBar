@@ -110,14 +110,12 @@ fieldset {
 }
 
 .btn:active:not(:disabled) {
-    border-color: #D5B4A8;
-    background-color: #F44;
-    box-shadow: 0 4px 20px 0 #FA5A5A;
+    background-color: #52E36A;
+    box-shadow: 0 4px 20px 0 #52E36A;
 }
 
 .btn:focus:not(:disabled) {
-    background-color: #52E36A;
-    box-shadow: 0 4px 20px 0 #52E36A;
+    border-color: #D5B4A8;
 }
 
 .btn:disabled {

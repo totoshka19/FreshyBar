@@ -46,6 +46,7 @@ const getData = async () => {
 
 // Функция создания карточек
 const createCard = (item) => {
+    console.log(item)
     const cocktail = document.createElement("article");
     cocktail.classList.add("cocktail");
 
@@ -291,10 +292,11 @@ const calculateAdd = () => {
 
 // Отрисовываем корзину
 const createCartItem = (item) => {
+    console.log(item)
     const li = document.createElement("li");
     li.classList.add("order__item");
     li.innerHTML = `
-        <img src="./img/mango.jpg" alt="${item.title}" class="order__img">
+        <img src="${API_URL}${item.image}" alt="${item.title}" class="order__img">
         
         <div class="order__info">
           <h3 class="order__name">${item.title}</h3>
