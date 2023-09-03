@@ -292,7 +292,6 @@ const calculateAdd = () => {
 
 // Отрисовываем корзину
 const createCartItem = (item) => {
-    console.log(item)
     const li = document.createElement("li");
     li.classList.add("order__item");
     li.innerHTML = `
@@ -300,17 +299,19 @@ const createCartItem = (item) => {
         
         <div class="order__info">
           <h3 class="order__name">${item.title}</h3>
+          
           <ul class="order__topping-list">
             <li class="order__topping-item">${item.size}</li>
             <li class="order__topping-item">${item.cup}</li>
             ${
                 item.topping 
-                    ? (Array.isArray(item.topping) 
+                    ? Array.isArray(item.topping) 
                         ? item.topping.map(
-                            (topping) => `<li class="order__topping-item">${topping}</li>`
-                        ) 
-                    : `<li class="order__topping-item">${item.topping}</li>`)
-                : ""
+                            (topping) =>
+                                `<li class="order__topping-item">${topping}</li>`
+                            ) 
+                        : `<li class="order__topping-item">${item.topping}</li>`
+                    : ""
             }
             
           </ul>
